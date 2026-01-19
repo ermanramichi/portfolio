@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HeroComponentService, Quote } from './hero-component-service';
+import { AboutComponent } from "../about-component/about-component";
 
 
 @Component({
@@ -24,7 +25,7 @@ export class HeroComponent implements OnInit{
 
 getNewQuote() {
     this.loading = true;
-    
+
     this.heroService.getRandomQuote().subscribe({
       next: (quotes) => {
         this.currentQuote = quotes[0];
@@ -47,6 +48,6 @@ getNewQuote() {
       }
     });
   }
-  
-  
+
+
 }

@@ -1,44 +1,19 @@
-<div class="herobanner w-full flex flex-col justify-center items-center min-h-[800px] md:min-h-[800px]" data-aos="fade-up" id="home">
-    <div class="herobannerwrapper w-full flex flex-col justify-center items-start h-full md:w-[1400px] md:flex-row gap-4">
-        <div class="left w-full h-1/2 flex flex-col justify-center items-center md:w-1/2 md:h-full" data-aos="slide-right">
-            <div class="tekst h-1/2 w-full flex flex-col justify-center items-center">
-                <p class="welcoming text-white md:text-[70px] text-[40px] text-center">Hello, <br/> my name is</p>
-                <h1 class="text-white md:text-[90px] text-[40px] text-center font-black">Erman Ramichi</h1>
-                <div class="links flex justify-center items-center gap-3 m-3">
-                    <a href="https://github.com/ermanramichi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-120">
-                        <i class="fa-brands fa-github fa-2x" style="color:green"></i>
-                    </a>
-                    <a href="https://mk.linkedin.com/in/ermanramichi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-120">
-                        <i class="fa-brands fa-linkedin fa-2x" style="color:green"></i>
-                    </a>
-                    <a href="https://www.facebook.com/ermanzz" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-120">
-                        <i class="fa-brands fa-facebook fa-2x" style="color:green"></i>
-                    </a>
-                    <a href="https://www.instagram.com/ermanramiqi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-120">
-                        <i class="fa-brands fa-instagram fa-2x" style="color:green"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="right flex flex-col justify-center items-center w-full h-1/2 md:w-1/2 md:h-full gap-10" data-aos="slide-left">
-            <div class="quotes flex flex-col justify-center items-center w-[95%] h-full gap-5">
-                <h1 class="text-white text-[30px] font-bold">Daily Quote:</h1>
-                <div *ngIf="loading" class="loading text-white">Getting new quote...</div>
-                <div *ngIf="currentQuote && !loading" class="quote-content">
-                <div class="text-white italic text-center text-[18px] w-full">
-                        "{{ currentQuote.quote }}"
-                </div>
-                <div class="text-white italic text-center text-[22px]">— {{ currentQuote.author }}</div>
+<div class="heroWrapper w-full h-full min-h-[400px] max-h-[600px] overflow-hidden" id="home" data-aos="fade-up">
+  <div class="heroContentWrapper w-full md:w-[1000px] h-full  flex flex-row justify-center items-start justify-self-center rounded-3xl gap-4 p-4 md:p-10">
+    <div class="left w-1/2">
+      <h1 class="text-white text-3xl px-3 md:text-6xl uppercase font-bold">Erman Ramichi</h1>
+      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Software Engineer | Web Developer | Tech Enthusiast</h2>
+      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Skopje, North Macedonia | 23 years old</h2>
+      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light italic underline"><a href="" class="">Download my Resume</a></h2>
+      <h1 class="text-white text-2xl  px-3 font-black mt-4">About Me</h1>
+      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Currently a student of Software Engineering at SS. Cyril and Methodius University in Skopje.</h3>
+      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Eager to learn new things and grow my skills in the tech industry.</h3>
+      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Passionate about coding, problem-solving, and creating innovative solutions.</h3>
     </div>
-
-            <button
-            (click)="getNewQuote()"
-            [disabled]="loading"
-            class="new-quote-btn text-green-800 bg-white p-4 rounded-3xl font-bold hover:bg-green-900/50 transition-colors duration-500 hover:text-white hover:border-white hover:border-2">
-            {{ loading ? 'Loading...' : 'New Quote' }}
-            </button>
-
-            </div>
+    <div class="right w-1/2 md:p-14 h-full">
+      <div class="imagewrapper p-2 rounded-full border-2  border-white bg-white/20 flex justify-center items-center">
+        <img src="assets/erman-no-bg.png" alt="" class="pfpImage w-[100%] h-auto rounded-full object-cover"/>
+      </div>
     </div>
-    </div>
+  </div>
 </div>

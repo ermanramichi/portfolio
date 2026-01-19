@@ -1,9 +1,16 @@
 @import "tailwindcss";/* You can add global styles to this file, and also import other style files */
 @import 'aos/dist/aos.css';
+
+
 body{
-   
-    background-repeat: repeat;
-    background: linear-gradient(180deg,rgb(0, 32, 12) 0%, rgb(0, 119, 54) 50%, rgb(0, 32, 12) 100%);
-    
-    
+
+  background:
+  radial-gradient(circle at center, rgba(9,9,121,0.35), transparent 55%),
+  linear-gradient(135deg, #000814, #020024, #000814);
+
 }
+*{
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+

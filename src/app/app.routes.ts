@@ -8,12 +8,12 @@ import { HeroComponent } from './main-component/hero-component/hero-component';
 import { HeaderComponent } from './header-component/header-component';
 
 export const routes: Routes = [
-  { path: 'home', component: HeroComponent},
-  { path: 'about', component: AboutComponent },
+  { path: '', component: MainComponent },
+  { path: 'about', component: HeroComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'experience', component: ExperienceComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: `/home` }
+  { path: 'technologies',component: ExperienceComponent },
+
 ];
 
 const config: ExtraOptions = {

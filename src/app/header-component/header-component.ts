@@ -11,13 +11,13 @@ export class HeaderComponent {
   isScrolled=false;
   @HostListener('window:scroll')
   onWindowScroll(): void{
-    this.isScrolled = window.pageYOffset > 80;
+    this.isScrolled = window.pageYOffset > 50;
   }
   get getClasses(): string {
-    const baseClasses = 'w-full h-30 flex justify-center items-center sticky top-0 z-50 md:h-24';
+    const baseClasses = 'w-full h-16 flex justify-center items-center sticky top-0 z-9999 md:h-24';
     const scrolledClasses = 'backdrop-blur bg-black/30';
     const transparentClasses = 'bg-transparent text-white';
-    
+
     return `${baseClasses} ${this.isScrolled ? scrolledClasses : transparentClasses}`;
   }
 }
