@@ -8,7 +8,7 @@ import { HeroComponent } from './main-component/hero-component/hero-component';
 import { HeaderComponent } from './header-component/header-component';
 
 export const routes: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', component: HeaderComponent },
   { path: 'about', component: HeroComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'experience', component: ExperienceComponent },
