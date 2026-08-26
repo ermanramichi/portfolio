@@ -1,0 +1,94 @@
+:host { display: block; }
+
+.foot {
+  margin-top: 2rem;
+  border-top: 1px solid var(--line);
+  background: rgba(1, 3, 12, 0.5);
+}
+
+.foot__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding-block: 2.5rem;
+  text-align: center;
+}
+@media (min-width: 860px) {
+  .foot__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding-block: 2.25rem;
+  }
+}
+
+/* Brand */
+.foot__brand { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.foot__mark {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+}
+.foot__brand strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--color-paper); }
+.foot__brand em {
+  display: block;
+  font-size: 0.74rem;
+  font-style: normal;
+  color: var(--color-mist);
+}
+
+/* Nav */
+.foot__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1.5rem; }
+.foot__nav a {
+  font-size: 0.85rem;
+  color: var(--color-mist);
+  text-decoration: none;
+  transition: color 240ms ease;
+}
+.foot__nav a:hover { color: var(--color-paper); }
+
+/* Back to top */
+.foot__top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--color-mist);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 260ms ease, border-color 260ms ease, transform 260ms ease;
+}
+.foot__top:hover {
+  color: var(--color-paper);
+  border-color: rgba(77, 124, 254, 0.5);
+  transform: translateY(-2px);
+}
+.foot__top i { transition: transform 300ms ease; }
+.foot__top:hover i { transform: translateY(-2px); }
+
+/* Base line */
+.foot__base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+@media (min-width: 640px) { .foot__base { flex-direction: row; justify-content: space-between; } }
+
+.foot__base p { margin: 0; font-size: 0.75rem; color: var(--color-mist); }

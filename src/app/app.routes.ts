@@ -1,29 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes, ExtraOptions } from '@angular/router';
-import { AboutComponent } from './main-component/about-component/about-component';
-import { ContactComponent } from './main-component/contact-component/contact-component';
+import { Routes } from '@angular/router';
 import { MainComponent } from './main-component/main-component';
-import { ExperienceComponent } from './main-component/experience-component/experience-component';
-import { HeroComponent } from './main-component/hero-component/hero-component';
-import { HeaderComponent } from './header-component/header-component';
 
+/**
+ * The portfolio is a single page — navigation is anchor-based scrolling
+ * handled by the header, so one route is all that's needed.
+ */
 export const routes: Routes = [
-  { path: '', component: HeaderComponent },
-  { path: 'about', component: HeroComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'experience', component: ExperienceComponent },
-  { path: 'technologies',component: ExperienceComponent },
-
+  { path: '', component: MainComponent },
+  { path: '**', redirectTo: '' },
 ];
-
-const config: ExtraOptions = {
-  anchorScrolling: 'enabled',
-  scrollPositionRestoration: 'enabled',
-  scrollOffset: [0, 84], // optional: adjust if you have a fixed navbar
-};
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}

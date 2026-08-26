@@ -1,13 +1,54 @@
+<section id="about" class="section">
+  <div class="shell">
 
+    <header class="head" data-aos="fade-up">
+      <span class="eyebrow"><span class="eyebrow__bar"></span> 01 — About</span>
+      <h2 class="head__title">Get to know me</h2>
+    </header>
 
-        <div class="insidewrapper flex flex-col justify-center items-center rounded-3xl">
-        <div class="title text-white text-[30px] font-bold p-5">Get to know me</div>
-        <div class="content flex flex-col justify-center items-center h-fit w-fit md:flex-row">
+    <div class="about">
+      <!-- Story -->
+      <div class="about__story" data-aos="fade-up" data-aos-delay="60">
+        <p class="about__lead">
+          I'm Erman — a 23-year-old developer from Skopje, in my final year of
+          Software Engineering at SS. Cyril and Methodius University.
+        </p>
+        <p>
+          I care about the details most people scroll past: how a layout holds up on a
+          small screen, how fast a page feels on a slow connection, how obvious the next
+          click is. Most of my time goes into front-end work with Angular, TypeScript and
+          Tailwind, backed by Java on the server side.
+        </p>
+        <p>
+          I believe in giving my all to master new skills and perfect my craft — and I'm
+          ready for whatever challenge comes next.
+        </p>
 
-            <div class="tekst h-fit max-w-[350px] p-4 text-white text-[20px] text-left font-light" data-aos="fade-up">
-                 My name is Erman Ramichi, a 23-year-old from Skopje, currently in my final year of Software Engineering studies at the faculty of SS Cyril and Methodius. I have a strong passion for technology and am always eager to learn new things. I believe in giving my all to master new skills and perfect my craft. I'm excited about the future and ready to take on new challenges.
-            </div>
-        </div>
-        </div>
+        @if (quote(); as q) {
+          <figure class="quote">
+            <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+            <blockquote>{{ q.quote }}</blockquote>
+            <figcaption>
+              — {{ q.author }}
+              <button type="button" (click)="nextQuote()" [disabled]="loading()" aria-label="Show another quote">
+                <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+              </button>
+            </figcaption>
+          </figure>
+        }
+      </div>
 
-
+      <!-- Facts -->
+      <ul class="facts" data-aos="fade-up" data-aos-delay="120">
+        @for (fact of facts; track fact.label) {
+          <li class="card fact">
+            <span class="fact__icon"><i [class]="fact.icon" aria-hidden="true"></i></span>
+            <span class="fact__label">{{ fact.label }}</span>
+            <span class="fact__value">{{ fact.value }}</span>
+            <span class="fact__note">{{ fact.note }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

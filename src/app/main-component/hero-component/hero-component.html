@@ -1,19 +1,82 @@
-<div class="heroWrapper w-full h-full min-h-[400px] max-h-[600px] overflow-hidden" id="home" data-aos="fade-up">
-  <div class="heroContentWrapper w-full md:w-[1000px] h-full  flex flex-row justify-center items-start justify-self-center rounded-3xl gap-4 p-4 md:p-10">
-    <div class="left w-1/2">
-      <h1 class="text-white text-3xl px-3 md:text-6xl uppercase font-bold">Erman Ramichi</h1>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Software Engineer | Web Developer | Tech Enthusiast</h2>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Skopje, North Macedonia | 23 years old</h2>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light italic underline"><a href="assets/erman-ramichi.pdf" class="">Download my Resume</a></h2>
-      <h1 class="text-white text-2xl  px-3 font-black mt-4">About Me</h1>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Currently a student of Software Engineering at SS. Cyril and Methodius University in Skopje.</h3>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Eager to learn new things and grow my skills in the tech industry.</h3>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Passionate about coding, problem-solving, and creating innovative solutions.</h3>
-    </div>
-    <div class="right w-1/2 md:p-14 h-full">
-      <div class="imagewrapper p-2 rounded-full border-2  border-white bg-white/20 flex justify-center items-center">
-        <img src="assets/erman-no-bg.png" alt="" class="pfpImage w-[100%] h-auto rounded-full object-cover"/>
+<section id="home" class="hero">
+  <div class="shell hero__grid">
+
+    <!-- Copy -->
+    <div class="hero__copy">
+      <span class="eyebrow hero__badge" data-aos="fade-up">
+        <i class="dot" aria-hidden="true"></i>
+        Open to opportunities
+      </span>
+
+      <h1 class="hero__name" data-aos="fade-up" data-aos-delay="60">
+        <span class="gradient-text">Erman</span><br />
+        <span class="hero__last">Ramichi</span>
+      </h1>
+
+      <p class="hero__roles" data-aos="fade-up" data-aos-delay="120">
+        <span>Software Engineer</span>
+        <i aria-hidden="true">/</i>
+        <span>Web Developer</span>
+        <i aria-hidden="true">/</i>
+        <span>Tech Enthusiast</span>
+      </p>
+
+      <p class="hero__bio" data-aos="fade-up" data-aos-delay="180">
+        Final-year Software Engineering student in Skopje, building fast, accessible
+        web interfaces with Angular and TypeScript — and always chasing the next thing
+        worth learning.
+      </p>
+
+      <div class="hero__meta" data-aos="fade-up" data-aos-delay="220">
+        <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Skopje, North Macedonia</span>
+        <span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> SS. Cyril &amp; Methodius University</span>
+      </div>
+
+      <div class="hero__cta" data-aos="fade-up" data-aos-delay="260">
+        <a href="#work" class="btn btn-primary" (click)="scrollTo($event, 'work')">
+          View my work
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="assets/erman-ramichi.pdf" download class="btn btn-ghost">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+          Resume
+        </a>
+      </div>
+
+      <div class="hero__socials" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://github.com/ermanramichi" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://mk.linkedin.com/in/ermanramichi" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/ermanramiqi" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <span class="hero__socials-rule"></span>
       </div>
     </div>
+
+    <!-- Portrait -->
+    <div class="hero__portrait" data-aos="fade-left" data-aos-delay="140">
+      <span class="hero__halo" aria-hidden="true"></span>
+      <span class="hero__ring" aria-hidden="true"></span>
+      <picture>
+        <source srcset="assets/erman-stencil-nobg.webp" type="image/webp" />
+        <img
+          src="assets/erman-stencil-nobg.png"
+          alt="Stencil illustration of Erman Ramichi"
+          width="941"
+          height="1672"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+    </div>
   </div>
-</div>
+
+  <a href="#about" class="hero__scroll" (click)="scrollTo($event, 'about')" aria-label="Scroll to about">
+    <span class="hero__scroll-track"><span class="hero__scroll-dot"></span></span>
+    Scroll
+  </a>
+</section>
