@@ -1,12 +1,9 @@
 <footer class="foot">
   <div class="shell foot__inner">
-    <a href="#home" class="foot__brand" (click)="backToTop($event)">
-      <span class="foot__mark">ER</span>
-      <span>
-        <strong>Erman Ramichi</strong>
-        <em>Software Engineer · Skopje, MK</em>
-      </span>
-    </a>
+    <div class="foot__col">
+      <a href="#home" class="foot__brand" (click)="backToTop($event)">Erman Ramichi</a>
+      <p class="label">Software Engineer · Skopje, MK</p>
+    </div>
 
     <nav class="foot__nav" aria-label="Footer">
       <a href="#about">About</a>
@@ -16,13 +13,11 @@
     </nav>
 
     <button type="button" class="foot__top" (click)="backToTop($event)">
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-      Back to top
+      Back to top <span aria-hidden="true">↑</span>
     </button>
   </div>
 
   <div class="shell foot__base">
-    <p>© {{ year }} Erman Ramichi. All rights reserved.</p>
-    <p>Built with Angular &amp; Tailwind.</p>
+    <p class="label">© {{ year }} Erman Ramichi</p>
   </div>
 </footer>

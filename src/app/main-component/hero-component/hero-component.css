@@ -1,237 +1,160 @@
 :host { display: block; }
 
-.hero {
-  position: relative;
-  padding-top: 2.5rem;
-  padding-bottom: 4rem;
-}
-@media (min-width: 1024px) {
-  .hero {
-    display: flex;
-    align-items: center;
-    min-height: calc(100dvh - var(--nav-h));
-    padding-block: 2rem 5rem;
-  }
-}
+.hero { padding-top: 2rem; padding-bottom: 3.5rem; }
+@media (min-width: 1024px) { .hero { padding-top: 3rem; padding-bottom: 6rem; } }
 
-.hero__grid {
-  display: grid;
-  gap: 2.5rem;
-  align-items: center;
-}
-@media (min-width: 1024px) {
-  .hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 3rem; }
-}
-
-/* ── Copy ──────────────────────────────────────────────────────── */
-.hero__copy { order: 2; min-width: 0; }
-@media (min-width: 1024px) { .hero__copy { order: 1; } }
-
-.hero__badge {
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-}
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: #34d399;
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.18);
-  animation: pulse-dot 2.4s ease-in-out infinite;
-}
-
-.hero__name {
-  margin: 1.1rem 0 0;
-  font-size: clamp(2.75rem, 12vw, 4rem);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-  text-transform: uppercase;
-}
-@media (min-width: 1024px) { .hero__name { font-size: clamp(3.5rem, 5.2vw, 5.25rem); } }
-
-.hero__last {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(233, 238, 251, 0.55);
-}
-
-.hero__roles {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 1.15rem 0 0;
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-paper);
-}
-.hero__roles i { color: var(--color-accent-2); font-style: normal; }
-@media (min-width: 768px) { .hero__roles { font-size: 0.9rem; } }
-
-.hero__bio {
-  max-width: 34rem;
-  margin: 1.35rem 0 0;
-  font-size: 0.98rem;
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--color-mist);
-}
-@media (min-width: 768px) { .hero__bio { font-size: 1.05rem; } }
-
+/* ── Masthead meta row ─────────────────────────────────────────── */
 .hero__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.35rem;
-  margin-top: 1.35rem;
-  font-size: 0.8rem;
-  color: var(--color-mist);
+  gap: 0.4rem 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
 }
-.hero__meta i { margin-right: 0.45rem; color: var(--color-accent); }
+@media (min-width: 768px) { .hero__meta { justify-content: space-between; } }
+.hero__meta-mid { display: none; }
+@media (min-width: 768px) { .hero__meta-mid { display: inline; } }
 
-.hero__cta {
+.hero__available { color: var(--color-blue); }
+
+/* ── Layout ────────────────────────────────────────────────────────
+   Mobile stacks name → portrait → details.
+   From 900px the portrait sits alongside, spanning both text rows.
+──────────────────────────────────────────────────────────────────── */
+.hero__grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.75rem;
+  grid-template-areas:
+    'name'
+    'plate'
+    'info';
+}
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-areas:
+      'name  plate'
+      'info  plate';
+    align-items: start;
+    column-gap: 3.5rem;
+    row-gap: 2.25rem;
+    margin-top: 2.5rem;
+  }
+}
+
+/* ── Name ──────────────────────────────────────────────────────── */
+.hero__name {
+  grid-area: name;
+  display: grid;
+  font-size: clamp(3.25rem, 15vw, 5rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+}
+@media (min-width: 900px)  { .hero__name { font-size: clamp(3.5rem, 7.2vw, 6rem); } }
+@media (min-width: 1280px) { .hero__name { font-size: 7rem; } }
+
+/* Second line sits outlined — contrast without a gradient. */
+.hero__name-2 {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-dim);
+  padding-left: 0.06em;
+}
+@media (min-width: 768px) { .hero__name-2 { -webkit-text-stroke-width: 1.5px; padding-left: 0.1em; } }
+
+/* ── Details ───────────────────────────────────────────────────── */
+.hero__info {
+  grid-area: info;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 900px) { .hero__info { padding-top: 2rem; } }
+
+.hero__lede {
+  max-width: 40ch;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-bone);
+}
+@media (min-width: 768px) { .hero__lede { font-size: 1.2rem; } }
+
+.hero__facts { margin-top: 2rem; }
+.hero__facts > div {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 560px) {
+  .hero__facts > div { grid-template-columns: 8.5rem minmax(0, 1fr); align-items: baseline; gap: 1.25rem; }
+}
+.hero__facts dd { margin: 0; font-size: 0.9rem; font-weight: 300; color: var(--color-dim); }
+
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
-.hero__cta .btn { flex: 1 1 auto; min-width: 9.5rem; }
-@media (min-width: 480px) { .hero__cta .btn { flex: 0 0 auto; } }
 
 .hero__socials {
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
   margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
 }
 .hero__socials a {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--line);
-  border-radius: 0.8rem;
-  font-size: 0.95rem;
-  color: var(--color-mist);
-  text-decoration: none;
-  transition: color 260ms ease, border-color 260ms ease, transform 260ms ease, background 260ms ease;
-}
-.hero__socials a:hover {
-  color: var(--color-paper);
-  border-color: rgba(77, 124, 254, 0.55);
-  background: var(--surface-hi);
-  transform: translateY(-3px);
-}
-.hero__socials-rule {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--line), transparent);
-}
-
-/* ── Portrait: duotone stencil dissolving into the background ──── */
-.hero__portrait {
-  order: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  isolation: isolate;
-}
-@media (min-width: 1024px) { .hero__portrait { order: 2; justify-content: flex-end; } }
-
-.hero__portrait picture { display: contents; }
-
-.hero__portrait img {
-  position: relative;
-  z-index: 1;
-  width: auto;
-  max-width: 100%;
-  height: clamp(19rem, 52vw, 25rem);
-  object-fit: contain;
-  object-position: bottom center;
-
-  /* grayscale -> sepia -> saturate -> hue-rotate lands the whole
-     stencil on a single cool blue axis instead of neutral black. */
-  filter:
-    grayscale(1) sepia(1) saturate(3.2) hue-rotate(172deg)
-    brightness(1.04) contrast(1.06)
-    drop-shadow(0 0 26px rgba(53, 208, 242, 0.28));
-
-  /* Edges melt into the page rather than ending on a hard cut. */
-  -webkit-mask-image:
-    linear-gradient(to bottom, #000 0%, #000 62%, rgba(0, 0, 0, 0.55) 84%, transparent 99%),
-    linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
-  mask-image:
-    linear-gradient(to bottom, #000 0%, #000 62%, rgba(0, 0, 0, 0.55) 84%, transparent 99%),
-    linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-
-  animation: float-slow 9s ease-in-out infinite;
-}
-@media (min-width: 1024px) { .hero__portrait img { height: clamp(27rem, 62vh, 40rem); } }
-
-/* Glow pooled behind the figure */
-.hero__halo {
-  position: absolute;
-  z-index: 0;
-  bottom: 4%;
-  left: 50%;
-  width: min(30rem, 92%);
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(77, 124, 254, 0.34) 0%, rgba(53, 208, 242, 0.14) 42%, transparent 70%);
-  filter: blur(14px);
-}
-
-/* Thin orbit ring for structure */
-.hero__ring {
-  position: absolute;
-  z-index: 0;
-  bottom: 8%;
-  left: 50%;
-  width: min(22rem, 72%);
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border: 1px solid rgba(148, 162, 196, 0.18);
-  border-radius: 999px;
-  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 88%);
-  mask-image: linear-gradient(to bottom, #000 40%, transparent 88%);
-}
-
-/* ── Scroll cue ────────────────────────────────────────────────── */
-.hero__scroll {
-  display: none;
-  position: absolute;
-  left: 50%;
-  bottom: 1.75rem;
-  transform: translateX(-50%);
-  align-items: center;
-  gap: 0.6rem;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-mist);
+  color: var(--color-dim);
   text-decoration: none;
+  transition: color 240ms ease;
 }
-@media (min-width: 1024px) { .hero__scroll { display: flex; } }
+.hero__socials a:hover { color: var(--color-blue); }
 
-.hero__scroll-track {
-  display: grid;
-  justify-items: center;
-  width: 1.15rem;
-  height: 1.95rem;
-  padding-top: 0.35rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+/* ── Portrait as a printed plate ───────────────────────────────── */
+.plate {
+  grid-area: plate;
+  align-self: start;
+  max-width: 26rem;
+  width: 100%;
+  justify-self: center;
 }
-.hero__scroll-dot {
-  width: 3px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--color-accent-2);
-  animation: float-slow 2s ease-in-out infinite;
+@media (min-width: 900px) { .plate { max-width: none; justify-self: stretch; position: sticky; top: calc(var(--nav-h) + 1.5rem); } }
+
+.plate__frame {
+  isolation: isolate;          /* keeps multiply off the page background */
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  overflow: hidden;
+}
+
+.plate img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 12%;
+
+  /* Multiply drops the artwork's white onto the paper, so the black
+     linework prints as drawn instead of vanishing into a dark page. */
+  mix-blend-mode: multiply;
+  filter: grayscale(1) contrast(1.05);
+}
+@media (min-width: 900px) { .plate img { aspect-ratio: 5 / 6; } }
+
+.plate figcaption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-dim);
 }

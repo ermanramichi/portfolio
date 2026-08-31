@@ -5,13 +5,15 @@
   top: 0.75rem;
   left: 0.75rem;
   z-index: 200;
-  padding: 0.65rem 1.1rem;
-  border-radius: 999px;
-  background: var(--color-accent);
-  color: #fff;
-  font-size: 0.85rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--color-blue);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
-  transform: translateY(-160%);
+  transform: translateY(-180%);
   transition: transform 240ms ease;
 }
 .skip:focus-visible { transform: translateY(0); }

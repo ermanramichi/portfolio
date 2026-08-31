@@ -2,15 +2,15 @@
   <div class="shell">
 
     <header class="head" data-aos="fade-up">
-      <span class="eyebrow"><span class="eyebrow__bar"></span> 02 — Work</span>
-      <h2 class="head__title">What I build &amp; where I've been</h2>
-      <p class="head__sub">
+      <span class="head__index">02 / Work</span>
+      <h2 class="head__title">What I build</h2>
+      <p class="head__note">
         The tools I reach for, the things I've shipped, and the roles that got me here.
       </p>
     </header>
 
-    <!-- Tabs -->
-    <div class="tabs" role="tablist" aria-label="Work sections" data-aos="fade-up" data-aos-delay="60">
+    <!-- Tabs as a ruled index, not pills -->
+    <div class="tabs" role="tablist" aria-label="Work sections" data-aos="fade-up">
       @for (tab of tabs; track tab.id; let i = $index) {
         <button
           type="button"
@@ -24,77 +24,77 @@
           (click)="select(tab.id)"
           (keydown)="onTabKey($event, i)"
         >
-          <i [class]="tab.icon" aria-hidden="true"></i>
-          <span>{{ tab.label }}</span>
+          {{ tab.label }}
         </button>
       }
     </div>
 
     <!-- Technologies -->
     @if (active() === 'stack') {
-      <div id="panel-stack" role="tabpanel" aria-labelledby="tab-stack" class="panel skills">
+      <ul id="panel-stack" role="tabpanel" aria-labelledby="tab-stack" class="panel stack">
         @for (skill of skills; track skill.name; let i = $index) {
-          <article class="card skill" [style.--d]="i * 70 + 'ms'">
-            <div class="skill__top">
-              <span class="skill__icon"><i [class]="skill.icon" aria-hidden="true"></i></span>
-              <div class="skill__id">
-                <h3>{{ skill.name }}</h3>
-                <span class="skill__pct">{{ skill.level }}%</span>
-              </div>
-            </div>
-            <p class="skill__blurb">{{ skill.blurb }}</p>
-            <div
-              class="meter"
-              role="progressbar"
-              [attr.aria-valuenow]="skill.level"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              [attr.aria-label]="skill.name + ' proficiency'"
-            >
-              <span class="meter__fill" [style.--w]="skill.level + '%'"></span>
-            </div>
-          </article>
+          <li class="row" [style.--d]="i * 55 + 'ms'">
+            <span class="row__mark"><i [class]="skill.icon" aria-hidden="true"></i></span>
+            <span class="row__name">{{ skill.name }}</span>
+            <span class="row__kind label">{{ skill.role }}</span>
+            <span class="row__text">{{ skill.blurb }}</span>
+          </li>
         }
-      </div>
+      </ul>
     }
 
     <!-- Projects -->
     @if (active() === 'projects') {
       <div id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" class="panel projects">
         @for (project of projects; track project.name; let i = $index) {
-          <article class="card project" [style.--d]="i * 90 + 'ms'">
-            <span class="project__no">0{{ i + 1 }}</span>
-            <h3 class="project__name">{{ project.name }}</h3>
-            <p class="project__tagline">{{ project.tagline }}</p>
-            <p class="project__blurb">{{ project.blurb }}</p>
-            <ul class="chips">
-              @for (tag of project.tags; track tag) {
-                <li>{{ tag }}</li>
-              }
-            </ul>
+          <article class="project" [style.--d]="i * 80 + 'ms'">
+            <div class="project__aside">
+              <span class="project__no">0{{ i + 1 }}</span>
+              <span class="label">{{ project.year }}</span>
+            </div>
+            <div class="project__main">
+              <h3 class="project__name">
+                @if (project.url) {
+                  <a [href]="project.url" target="_blank" rel="noopener">
+                    {{ project.name }}<span class="project__out" aria-hidden="true">↗</span>
+                  </a>
+                } @else {
+                  {{ project.name }}
+                }
+              </h3>
+              <p class="project__tagline label">{{ project.tagline }}</p>
+              <p class="project__blurb">{{ project.blurb }}</p>
+              <p class="project__tags">
+                @for (tag of project.tags; track tag; let last = $last) {
+                  <span>{{ tag }}</span>@if (!last) {<i aria-hidden="true"> / </i>}
+                }
+              </p>
+            </div>
           </article>
         }
       </div>
     }
 
-    <!-- Experience timeline -->
+    <!-- Experience -->
     @if (active() === 'experience') {
-      <div id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" class="panel timeline">
+      <div id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" class="panel roles">
         @for (role of roles; track role.title; let i = $index) {
-          <article class="entry" [style.--d]="i * 90 + 'ms'">
-            <span class="entry__node" [class.is-current]="role.current" aria-hidden="true"></span>
-            <div class="card entry__body">
-              <div class="entry__head">
-                <h3>{{ role.title }}</h3>
-                @if (role.current) {
-                  <span class="entry__now">Current</span>
-                }
-              </div>
-              <p class="entry__meta">
-                <span class="entry__company">{{ role.company }}</span>
-                <span class="entry__period">{{ role.period }}</span>
-              </p>
-              <p class="entry__blurb">{{ role.blurb }}</p>
+          <article class="role" [style.--d]="i * 80 + 'ms'">
+            <div class="role__aside">
+              <span class="label role__period">{{ role.period }}</span>
+              @if (role.current) {
+                <span class="role__now">Current</span>
+              }
+            </div>
+            <div class="role__main">
+              <h3 class="role__title">{{ role.title }}</h3>
+              @if (role.subtitle) {
+                <p class="role__subtitle">{{ role.subtitle }}</p>
+              }
+              <p class="role__company label">{{ role.company }}</p>
+              @for (para of role.blurb; track $index) {
+                <p class="role__blurb">{{ para }}</p>
+              }
             </div>
           </article>
         }
