@@ -1,0 +1,82 @@
+:host { display: block; }
+
+.contact { display: grid; gap: 2.75rem; }
+@media (min-width: 900px) {
+  .contact { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+}
+
+.contact__lede {
+  max-width: 32ch;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-dim);
+}
+@media (min-width: 768px) { .contact__lede { font-size: 1.3rem; } }
+
+.contact__mail {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-size: clamp(1.15rem, 5.5vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-bone);
+  text-decoration: none;
+  word-break: break-word;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 0.25rem;
+  transition: color 240ms ease, border-color 240ms ease;
+}
+.contact__mail:hover { color: var(--color-blue); border-bottom-color: var(--color-blue); }
+
+.contact__actions { margin-top: 2rem; }
+
+/* ── Links: ruled rows, bare glyphs ────────────────────────────── */
+.contact__links > li { border-top: 1px solid var(--rule); }
+.contact__links > li:last-child { border-bottom: 1px solid var(--rule); }
+
+.contact__links a {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.15rem 1rem;
+  padding: 1.15rem 0;
+  text-decoration: none;
+  color: var(--color-bone);
+  transition: color 240ms ease;
+}
+@media (min-width: 560px) {
+  .contact__links a { grid-template-columns: 1.5rem 8rem minmax(0, 1fr) auto; }
+}
+
+.contact__links i {
+  font-size: 1.05rem;
+  color: var(--color-dim);
+  transition: color 240ms ease;
+}
+.contact__links a:hover i { color: var(--color-blue); }
+
+.contact__label { font-size: 1rem; font-weight: 400; }
+
+.contact__handle {
+  grid-column: 2;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (min-width: 560px) { .contact__handle { grid-column: auto; } }
+
+.contact__out {
+  grid-row: 1;
+  grid-column: -1;
+  font-size: 0.85rem;
+  color: var(--color-dim);
+  opacity: 0;
+  transform: translate(-3px, 3px);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+.contact__links a:hover .contact__out { opacity: 1; transform: translate(0, 0); }

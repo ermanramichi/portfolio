@@ -1,19 +1,75 @@
-<div class="heroWrapper w-full h-full min-h-[400px] max-h-[600px] overflow-hidden" id="home" data-aos="fade-up">
-  <div class="heroContentWrapper w-full md:w-[1000px] h-full  flex flex-row justify-center items-start justify-self-center rounded-3xl gap-4 p-4 md:p-10">
-    <div class="left w-1/2">
-      <h1 class="text-white text-3xl px-3 md:text-6xl uppercase font-bold">Erman Ramichi</h1>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Software Engineer | Web Developer | Tech Enthusiast</h2>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light">Skopje, North Macedonia | 23 years old</h2>
-      <h2 class="text-white text-left px-3 text-xs md:text-lg mt-5 font-light italic underline"><a href="assets/erman-ramichi.pdf" class="">Download my Resume</a></h2>
-      <h1 class="text-white text-2xl  px-3 font-black mt-4">About Me</h1>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Currently a student of Software Engineering at SS. Cyril and Methodius University in Skopje.</h3>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Eager to learn new things and grow my skills in the tech industry.</h3>
-      <h3 class="text-white font-italic px-3 text-xs md:text-base py-2">Passionate about coding, problem-solving, and creating innovative solutions.</h3>
+<section id="home" class="hero">
+  <div class="shell">
+
+    <!-- Masthead meta -->
+    <div class="hero__meta" data-aos="fade-up">
+      <span class="label">Skopje, North Macedonia</span>
+      <span class="label hero__meta-mid">Software Engineer</span>
+      <span class="label hero__available">Open to side projects</span>
     </div>
-    <div class="right w-1/2 md:p-14 h-full">
-      <div class="imagewrapper p-2 rounded-full border-2  border-white bg-white/20 flex justify-center items-center">
-        <img src="assets/erman-no-bg.png" alt="" class="pfpImage w-[100%] h-auto rounded-full object-cover"/>
+
+    <!-- Name + details on the left, portrait alongside them -->
+    <div class="hero__grid">
+
+      <h1 class="hero__name" data-aos="fade-up" data-aos-delay="60">
+        <span>Erman</span>
+        <span class="hero__name-2">Ramichi</span>
+      </h1>
+
+      <figure class="plate" data-aos="fade-up" data-aos-delay="120">
+        <div class="plate__frame">
+          <picture>
+            <source srcset="assets/erman-stencil-nobg.webp" type="image/webp" />
+            <img
+              src="assets/erman-stencil-nobg.png"
+              alt="Stencil illustration of Erman Ramichi"
+              width="941"
+              height="1672"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <span>Erman Ramichi, Skopje</span>
+        </figcaption>
+      </figure>
+
+      <div class="hero__info" data-aos="fade-up" data-aos-delay="160">
+        <p class="hero__lede">
+          Final-year Software Engineering student building fast, careful
+          web interfaces — and always chasing the next thing worth learning.
+        </p>
+
+        <dl class="hero__facts">
+          <div>
+            <dt class="label">Studying</dt>
+            <dd>Software Engineering, SS. Cyril &amp; Methodius</dd>
+          </div>
+          <div>
+            <dt class="label">Working</dt>
+            <dd>Web Administrator at Neptun MK</dd>
+          </div>
+          <div>
+            <dt class="label">Building with</dt>
+            <dd>Angular, TypeScript, Tailwind, Java</dd>
+          </div>
+        </dl>
+
+        <div class="hero__actions">
+          <a href="#work" class="act act--fill" (click)="scrollTo($event, 'work')">See the work</a>
+          <a href="assets/erman-ramichi.pdf" download class="arrow-link">
+            Resume <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <ul class="hero__socials">
+          <li><a href="https://github.com/ermanramichi" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://mk.linkedin.com/in/ermanramichi" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/ermanramiqi" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/ermanzz" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
       </div>
     </div>
   </div>
-</div>
+</section>

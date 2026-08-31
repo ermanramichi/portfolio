@@ -1,4 +1,23 @@
-<div class="footer flex flex-col justify-center items-center w-full h-24 bg-black/20 p-4  mt-5" >
-  <button (click)="backToTop()" class="text-white text-[14px] underline underline-offset-4 mb-2">Back to top</button>
-  <h1 class="text-white text-[14px]">All rights reserved - Erman Ramichi &copy; 2026</h1>
-</div>
+<footer class="foot">
+  <div class="shell foot__inner">
+    <div class="foot__col">
+      <a href="#home" class="foot__brand" (click)="backToTop($event)">Erman Ramichi</a>
+      <p class="label">Software Engineer · Skopje, MK</p>
+    </div>
+
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+      <a href="assets/erman-ramichi.pdf" download>Resume</a>
+    </nav>
+
+    <button type="button" class="foot__top" (click)="backToTop($event)">
+      Back to top <span aria-hidden="true">↑</span>
+    </button>
+  </div>
+
+  <div class="shell foot__base">
+    <p class="label">© {{ year }} Erman Ramichi</p>
+  </div>
+</footer>

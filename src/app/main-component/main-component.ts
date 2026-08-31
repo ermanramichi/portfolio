@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { HeroComponent } from "./hero-component/hero-component";
-
-import { ContactComponent } from "./contact-component/contact-component";
+import { HeroComponent } from './hero-component/hero-component';
+import { AboutComponent } from './about-component/about-component';
 import { ExperienceTabComponent } from '../experience-tab-component/experience-tab-component';
-import { RouterOutlet } from '@angular/router';
+import { ContactComponent } from './contact-component/contact-component';
 
 @Component({
   selector: 'app-main-component',
-  imports: [HeroComponent,ExperienceTabComponent, ContactComponent, RouterOutlet],
+  standalone: true,
+  imports: [HeroComponent, AboutComponent, ExperienceTabComponent, ContactComponent],
   templateUrl: './main-component.html',
-  styleUrl: './main-component.css'
+  styleUrl: './main-component.css',
 })
-export class MainComponent {
-
-}
+export class MainComponent {}

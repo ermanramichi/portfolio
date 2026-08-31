@@ -1,30 +1,33 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { HeaderComponent } from "./header-component/header-component";
-import { MainComponent } from "./main-component/main-component";
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID, Inject } from '@angular/core';
-import { FooterComponent } from "./footer-component/footer-component";
+
+import { HeaderComponent } from './header-component/header-component';
+import { MainComponent } from './main-component/main-component';
+import { FooterComponent } from './footer-component/footer-component';
+
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [HeaderComponent, MainComponent, FooterComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App implements AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-  ngAfterViewInit(): void{
-     if (isPlatformBrowser(this.platformId)) {
-    import('aos').then(AOS => {
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    import('aos').then((AOS) => {
       AOS.default.init({
-        duration:800,
-        easing: 'ease-in-out',
-        once:true,
+        duration: 700,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 40,
+        disable: reduced,
       });
     });
   }
-
-}
 }

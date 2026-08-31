@@ -1,16 +1,178 @@
-@import "tailwindcss";/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
 @import 'aos/dist/aos.css';
 
+/* ── Tokens ────────────────────────────────────────────────────── */
+@theme {
+  --color-ink:      #0b0b0d;
+  --color-bone:     #e8e6e0;
+  --color-dim:      #8f8d88;
+  --color-blue:     #4d7cfe;
 
-body{
-
-  background:
-  radial-gradient(circle at center, rgba(9,9,121,0.35), transparent 55%),
-  linear-gradient(135deg, #000814, #020024, #000814);
-
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
-*{
-  font-family: 'Space Grotesk', sans-serif;
+
+:root {
+  --rule: rgba(232, 230, 224, 0.13);
+  --rule-strong: rgba(232, 230, 224, 0.28);
+  --paper: #e4e2db;
+  --nav-h: 3.75rem;
+}
+@media (min-width: 1024px) { :root { --nav-h: 4.75rem; } }
+
+/* ── Base ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  -webkit-text-size-adjust: 100%;
 }
 
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+@supports not (overflow: clip) { body { overflow-x: hidden; } }
 
+/* Print-stock grain. Flat colour alone reads too digital. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+app-root { position: relative; z-index: 1; display: block; }
+
+::selection { background: var(--color-blue); color: var(--color-ink); }
+
+:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 3px; }
+
+h1, h2, h3, h4, p, ul, ol, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+/* ── Measure ───────────────────────────────────────────────────── */
+.shell {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px)  { .shell { padding-inline: 2.5rem; } }
+@media (min-width: 1280px) { .shell { padding-inline: 4rem; } }
+
+.section { padding-block: 4rem; }
+@media (min-width: 768px) { .section { padding-block: 6.5rem; } }
+
+/* ── Editorial section header ──────────────────────────────────── */
+.head {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-strong);
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 860px) {
+  .head {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+.head__index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--color-blue);
+}
+.head__title {
+  font-size: clamp(2rem, 9vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+@media (min-width: 768px) { .head__title { font-size: clamp(2.5rem, 4.6vw, 3.75rem); } }
+
+.head__note {
+  grid-column: 1 / -1;
+  max-width: 38ch;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-dim);
+}
+@media (min-width: 860px) { .head__note { grid-column: 2; } }
+
+/* ── Labels ────────────────────────────────────────────────────── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-dim);
+}
+
+/* ── Actions: outlined box + underlined arrow link ─────────────── */
+.act {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--color-bone);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
+}
+.act:hover { background: var(--color-bone); color: var(--color-ink); border-color: var(--color-bone); }
+.act--fill { background: var(--color-blue); border-color: var(--color-blue); color: var(--color-ink); }
+.act--fill:hover { background: var(--color-bone); border-color: var(--color-bone); }
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-bone);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule-strong);
+  transition: color 240ms ease, border-color 240ms ease;
+}
+.arrow-link i { transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+.arrow-link:hover { color: var(--color-blue); border-color: var(--color-blue); }
+.arrow-link:hover i { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-aos] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--color-ink); }
+::-webkit-scrollbar-thumb { background: #2b2c30; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-blue); }

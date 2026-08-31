@@ -1,20 +1,39 @@
-<div class="contactWrapper w-full h-fit min-h-[300px] justify-self-center mt-5 md:mt-20" id="contact" data-aos="fade-up">
-  <div class="contactContainerWrapper w-full md:max-w-[500px] h-full bg-black/40 p-6 rounded-3xl justify-self-center">
-    <h1 class="text-white text-3xl text-center pt-4">Contact Me</h1>
-    <div class="contactGridContainer flex justify-center items-center gap-3 p-6">
-      <a href="https://github.com/ermanramichi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-110">
-                        <i class="fa-brands fa-github fa-2x" style="color:black"></i>
-                    </a>
-                    <a href="https://mk.linkedin.com/in/ermanramichi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-110">
-                        <i class="fa-brands fa-linkedin fa-2x" style="color:black"></i>
-                    </a>
-                    <a href="https://www.facebook.com/ermanzz" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-110">
-                        <i class="fa-brands fa-facebook fa-2x" style="color:black"></i>
-                    </a>
-                    <a href="https://www.instagram.com/ermanramiqi" class="p-2 rounded-2xl bg-white w-[50px] h-[50px] flex justify-center items-center hover:scale-110">
-                        <i class="fa-brands fa-instagram fa-2x" style="color:black"></i>
-                    </a>
+<section id="contact" class="section">
+  <div class="shell">
+
+    <header class="head" data-aos="fade-up">
+      <span class="head__index">03 / Contact</span>
+      <h2 class="head__title">Say hello</h2>
+    </header>
+
+    <div class="contact">
+      <div class="contact__left" data-aos="fade-up">
+        <p class="contact__lede">
+          Open to side projects and freelance work alongside my day job — or just
+          a good conversation about the web.
+        </p>
+
+        <a href="mailto:ermanramiqi&#64;icloud.com" class="contact__mail">
+          ermanramiqi&#64;icloud.com
+        </a>
+
+        <div class="contact__actions">
+          <a href="assets/erman-ramichi.pdf" download class="act">Resume ↓</a>
+        </div>
+      </div>
+
+      <ul class="contact__links" data-aos="fade-up" data-aos-delay="80">
+        @for (link of socials; track link.label; let i = $index) {
+          <li>
+            <a [href]="link.url" target="_blank" rel="noopener">
+              <i [class]="link.icon" aria-hidden="true"></i>
+              <span class="contact__label">{{ link.label }}</span>
+              <span class="contact__handle">{{ link.handle }}</span>
+              <span class="contact__out" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        }
+      </ul>
     </div>
   </div>
-
-</div>
+</section>

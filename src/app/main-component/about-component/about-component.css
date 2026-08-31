@@ -1,0 +1,41 @@
+:host { display: block; }
+
+.about { display: grid; gap: 2.5rem; }
+@media (min-width: 900px) {
+  .about { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+}
+
+/* ── Story ─────────────────────────────────────────────────────── */
+.about__story p {
+  margin-bottom: 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-dim);
+}
+.about__lead {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-bone);
+}
+@media (min-width: 768px) {
+  .about__lead { font-size: 1.4rem; }
+  .about__story p { font-size: 1rem; }
+}
+
+/* ── Facts: a ruled index, not cards ───────────────────────────── */
+.fact {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--rule);
+}
+.fact:last-child { border-bottom: 1px solid var(--rule); }
+@media (min-width: 560px) {
+  .fact { grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1.5rem; align-items: baseline; }
+}
+
+.fact dd { margin: 0; display: grid; gap: 0.2rem; }
+.fact__value { font-size: 1rem; font-weight: 400; color: var(--color-bone); }
+.fact__note { font-size: 0.84rem; font-weight: 300; line-height: 1.55; color: var(--color-dim); }
